@@ -1,0 +1,22 @@
+{
+    "name": "hector68/yii2-grafikart-markdown-editor",
+    "description": "Markdown editor with opportunity uploading images",
+    "type": "yii2-extension",
+    "require": {
+        "yiisoft/yii2": "^2.0.6",
+        "php": ">=5.5.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitriy Ronzhin",
+            "email": "hector.tmb@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hector68\\GrafikartMarkdownEditor\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
