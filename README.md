@@ -6,6 +6,19 @@ About Markdown:
 
 ## Installation
 
+```
+php composer.phar require --prefer-dist hector68/yii2-grafikart-markdown-editor
+```
+
+or add
+
+```
+"hector68/yii2-grafikart-markdown-editor" : "^0.1"
+```
+o the require section of your composer.json file.
+
+
+
 if need upload images on server when include module to your config
 ```php
     'modules' => [
