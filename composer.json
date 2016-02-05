@@ -1,6 +1,6 @@
 {
     "name": "hector68/yii2-grafikart-markdown-editor",
-    "description": "Markdown editor with opportunity uploading images",
+    "description": "Markdown editor with opportunity to uploading images",
     "type": "yii2-extension",
     "require": {
         "php": ">=5.5.0",

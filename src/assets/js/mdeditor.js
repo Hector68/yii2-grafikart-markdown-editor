@@ -345,10 +345,9 @@ MdEditor = (function() {
             e.stopPropagation();
             if (window.confirm(options.labelConfirm)) {
               return $.ajax({
-                url: options.uploader + '/' + file.id,
+                url: options.uploader + '?file=' + file.url,
                 method: 'DELETE'
               }).done(function(data) {
-                console.log(file);
                 return $(file.previewElement).fadeOut(500, function() {
                   return drop.removeFile(file);
                 });

@@ -4,6 +4,7 @@ namespace Hector68\GrafikartMarkdownEditor\controllers;
 use Hector68\GrafikartMarkdownEditor\Module;
 use yii\base\DynamicModel;
 use yii\helpers\FileHelper;
+use yii\helpers\Html;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\Response;
@@ -14,10 +15,10 @@ class UploadController extends Controller
 {
 
 
-    public function actionData()
+    public function actionData($file = false)
     {
-        \Yii::$app->response->format = Response::FORMAT_JSON;
 
+        \Yii::$app->response->format = Response::FORMAT_JSON;
         if (\Yii::$app->request->isPost) {
             /**@var Module $module */
             $module = Module::getInstance();
@@ -43,15 +44,21 @@ class UploadController extends Controller
                 $newFileName = $module->isFileNameUnique ? uniqid() . '.' . $model->file->extension : $oldFileName;
                 $newFullFileName = \Yii::getAlias($module->uploadDir) . DIRECTORY_SEPARATOR . $newFileName;
                 if ($model->file->saveAs($newFullFileName)) {
+
                     return [
                         'id' => $oldFileName,
-                        'url' =>  \Yii::$app->request->getHostInfo(). str_replace('@webroot', '', $module->uploadDir).'/' .
+                        'url' => \Yii::$app->request->getHostInfo() . str_replace('@webroot', '',
+                                $module->uploadDir) . '/' .
                             $newFileName
                     ];
                 }
+            } else {
+                \Yii::$app->response->statusCode = 500;
+                return  $model->getFirstError('file');
+
             }
-
-
+        } elseif (\Yii::$app->request->isDelete && $file) {
+            return true;
         }
 
         throw new BadRequestHttpException();
