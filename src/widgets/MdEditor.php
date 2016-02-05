@@ -29,11 +29,17 @@ class MdEditor extends InputWidget
             [
                 'uploader' => $this->uploader,
                 'preview' => $this->preview,
-                'images' => $this->images
+                'images' => $this->images,
+                'uploaderData' => [
+                    '_csrf' => \Yii::$app->request->getCsrfToken()
+                ]
             ]
         );
 
-        $this->view->registerJs('var md_' . $class . ' = new MdEditor(".' . $class . '", ' . Json::encode($jsOptions) . ' )');
+        $this->view->registerJs(
+            'var md_' . $class . ' = new MdEditor(".' . $class . '", ' . Json::encode($jsOptions) . ' )'
+        );
+
         $this->options = ArrayHelper::merge($this->options, ['class' => $class]);
 
         return $this->hasModel() ?
