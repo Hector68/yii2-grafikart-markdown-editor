@@ -8,7 +8,7 @@
         "bower-asset/marked": "~0.3.2",
         "bower-asset/dropzone": "~3.11.1",
         "bower-asset/underscore": "~1.7.0",
-        "cebe/markdow" : "~1.1.0"
+        "cebe/markdown": "~1.0.0 | ~1.1.0"
     },
     "license": "MIT",
     "authors": [
