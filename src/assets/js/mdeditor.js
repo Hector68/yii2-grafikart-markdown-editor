@@ -42,6 +42,11 @@ MdEditor = (function() {
       labelSuccess: 'Content saved with success',
       labelImage: 'Insert your image url',
       labelConfirm: 'Do you really want to delete this picture ?',
+      labelBoldButton: 'Bold',
+      labelItalicButton: 'Italic',
+      labelLinkButton: 'Link',
+      labelImageButton: 'Image',
+      labelCodeButton: 'Code',
       preview: true,
       uploader: false,
       uploaderData: {},
@@ -309,11 +314,11 @@ MdEditor = (function() {
   };
 
   MdEditor.prototype._buildToolbar = function() {
-    $('<button class="mdeditor_bold">b</button>').appendTo(this.toolbar).click(this.bold);
-    $('<button class="mdeditor_italic">i</button>').appendTo(this.toolbar).click(this.italic);
-    $('<button class="mdeditor_link">l</button>').appendTo(this.toolbar).click(this.link);
-    $('<button class="mdeditor_picture">p</button>').appendTo(this.toolbar).click(this.image);
-    $('<button class="mdeditor_code">c</button>').appendTo(this.toolbar).click(this.code);
+    $('<button title="'+ this.options.labelBoldButton +'" class="mdeditor_bold">b</button>').appendTo(this.toolbar).click(this.bold);
+    $('<button title="'+ this.options.labelItalicButton +'" class="mdeditor_italic">i</button>').appendTo(this.toolbar).click(this.italic);
+    $('<button title="'+ this.options.labelLinkButton +'" class="mdeditor_link">l</button>').appendTo(this.toolbar).click(this.link);
+    $('<button title="'+ this.options.labelImageButton +'" class="mdeditor_picture">p</button>').appendTo(this.toolbar).click(this.image);
+    $('<button title="'+ this.options.labelCodeButton +'" class="mdeditor_code">c</button>').appendTo(this.toolbar).click(this.code);
     return $('<button class="mdeditor_fullscreen">f</button>').appendTo(this.toolbar).click(this.fullscreen);
   };
 
